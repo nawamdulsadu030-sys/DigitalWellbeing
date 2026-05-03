@@ -12,39 +12,24 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Show files
-        run: find . -maxdepth 3 -type f | head -40
-      - name: Create structure and build
+      - name: Setup Gradle wrapper
         run: |
-          mkdir -p myapp/app/src/main/java/com/nawam/digitalwellbeing/{service,ui,db,receiver}
-          mkdir -p myapp/app/src/main/res/{layout,values,xml,drawable,mipmap-hdpi}
-          mkdir -p myapp/gradle/wrapper
-          cp settings* myapp/settings.gradle 2>/dev/null || echo "no settings"
-          cp build* myapp/build.gradle 2>/dev/null || echo "no build"
-          cp gradle.properties myapp/ 2>/dev/null || true
-          cp gradlew myapp/ 2>/dev/null || true
-          cp gradle-wrapper.jar myapp/gradle/wrapper/ 2>/dev/null || true
-          cp gradle-wrapper.properties myapp/gradle/wrapper/ 2>/dev/null || true
-          for f in *.java; do
-            case "$f" in
-              Main*|AppSel*|Block*|Limit*) cp "$f" myapp/app/src/main/java/com/nawam/digitalwellbeing/ui/ ;;
-              *Service*|*Accessibility*) cp "$f" myapp/app/src/main/java/com/nawam/digitalwellbeing/service/ ;;
-              *Boot*|*Receiver*) cp "$f" myapp/app/src/main/java/com/nawam/digitalwellbeing/receiver/ ;;
-              *Usage*) cp "$f" myapp/app/src/main/java/com/nawam/digitalwellbeing/db/ ;;
-            esac
-          done
-          cp AndroidManifest.xml myapp/app/src/main/ 2>/dev/null || true
-          cp activity_*.xml overlay_*.xml myapp/app/src/main/res/layout/ 2>/dev/null || true
-          cp strings.xml themes.xml colors.xml myapp/app/src/main/res/values/ 2>/dev/null || true
-          cp accessibility_service_config.xml myapp/app/src/main/res/xml/ 2>/dev/null || true
-          cp bg_overlay*.xml circle_dot.xml myapp/app/src/main/res/drawable/ 2>/dev/null || true
-          cp ic_launcher*.xml myapp/app/src/main/res/mipmap-hdpi/ 2>/dev/null || true
-          chmod +x myapp/gradlew
-          ls myapp/
-      - name: Build
-        working-directory: myapp
+          curl -L https://services.gradle.org/distributions/gradle-8.4-bin.zip -o gradle.zip
+          unzip -q gradle.zip
+          mkdir -p gradle/wrapper
+          cp gradle-8.4/lib/plugins/gradle-wrapper-*.jar gradle/wrapper/gradle-wrapper.jar 2>/dev/null || \
+          find gradle-8.4 -name "gradle-wrapper.jar" -exec cp {} gradle/wrapper/ \;
+          cat > gradle/wrapper/gradle-wrapper.properties << 'EOF'
+          distributionBase=GRADLE_USER_HOME
+          distributionPath=wrapper/dists
+          distributionUrl=https\://services.gradle.org/distributions/gradle-8.4-bin.zip
+          zipStoreBase=GRADLE_USER_HOME
+          zipStorePath=wrapper/dists
+          EOF
+          chmod +x gradlew
+      - name: Build APK
         run: ./gradlew assembleDebug
       - uses: actions/upload-artifact@v4
         with:
           name: DigitalWellbeing-debug
-          path: myapp/app/build/outputs/apk/debug/app-debug.apk
+          path: app/build/outputs/apk/debug/app-debug.apk
