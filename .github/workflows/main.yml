@@ -12,23 +12,15 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Setup Gradle wrapper
+      - name: Install Gradle and build
         run: |
           curl -L https://services.gradle.org/distributions/gradle-8.4-bin.zip -o gradle.zip
           unzip -q gradle.zip
-          mkdir -p gradle/wrapper
-          cp gradle-8.4/lib/plugins/gradle-wrapper-*.jar gradle/wrapper/gradle-wrapper.jar 2>/dev/null || \
-          find gradle-8.4 -name "gradle-wrapper.jar" -exec cp {} gradle/wrapper/ \;
-          cat > gradle/wrapper/gradle-wrapper.properties << 'EOF'
-          distributionBase=GRADLE_USER_HOME
-          distributionPath=wrapper/dists
-          distributionUrl=https\://services.gradle.org/distributions/gradle-8.4-bin.zip
-          zipStoreBase=GRADLE_USER_HOME
-          zipStorePath=wrapper/dists
-          EOF
+          export GRADLE_HOME=$PWD/gradle-8.4
+          export PATH=$PATH:$GRADLE_HOME/bin
+          gradle wrapper --gradle-version=8.4
           chmod +x gradlew
-      - name: Build APK
-        run: ./gradlew assembleDebug
+          ./gradlew assembleDebug
       - uses: actions/upload-artifact@v4
         with:
           name: DigitalWellbeing-debug
