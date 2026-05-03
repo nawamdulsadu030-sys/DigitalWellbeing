@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_overlay_timer"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingStart="10dp"
+    android:paddingEnd="12dp"
+    android:paddingTop="6dp"
+    android:paddingBottom="6dp">
+
+    <!-- Color dot indicator -->
+    <View
+        android:id="@+id/dot_indicator"
+        android:layout_width="8dp"
+        android:layout_height="8dp"
+        android:background="@drawable/circle_dot"
+        android:backgroundTint="#4ADE80"
+        android:layout_marginEnd="7dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Timer display -->
+        <TextView
+            android:id="@+id/tv_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0:00"
+            android:textColor="#4ADE80"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:fontFamily="monospace" />
+
+        <!-- App name label -->
+        <TextView
+            android:id="@+id/tv_app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="App"
+            android:textColor="#888888"
+            android:textSize="9sp"
+            android:maxWidth="80dp"
+            android:maxLines="1"
+            android:ellipsize="end" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0F0F1A">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Apps to Monitor"
+        android:textColor="#E2E8F0"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:padding="16dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Floating timer will appear for checked apps"
+        android:textColor="#888888"
+        android:textSize="12sp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="12dp" />
+
+    <ListView
+        android:id="@+id/list_apps"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="#222233"
+        android:dividerHeight="0.5dp" />
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Selection"
+        android:backgroundTint="#7C3AED"
+        android:margin="12dp" />
+
+</LinearLayout>

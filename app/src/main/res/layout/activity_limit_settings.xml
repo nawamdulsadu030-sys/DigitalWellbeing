@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0F0F1A">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set Time Limits"
+            android:textColor="#E2E8F0"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Overall daily limit -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OVERALL DAILY LIMIT (all apps total)"
+            android:textColor="#A78BFA"
+            android:textSize="11sp"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="24dp">
+
+            <EditText
+                android:id="@+id/et_overall_limit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="e.g. 240"
+                android:textColor="#E2E8F0"
+                android:hintTextColor="#555555"
+                android:inputType="number"
+                android:background="#1A1A2E"
+                android:padding="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" minutes"
+                android:textColor="#888888"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <!-- Per-app limits -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PER-APP LIMITS"
+            android:textColor="#A78BFA"
+            android:textSize="11sp"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:id="@+id/container_per_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#1A1A2E"
+            android:padding="12dp"
+            android:layout_marginBottom="24dp" />
+
+        <Button
+            android:id="@+id/btn_save_limits"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save Limits"
+            android:backgroundTint="#7C3AED" />
+
+    </LinearLayout>
+</ScrollView>

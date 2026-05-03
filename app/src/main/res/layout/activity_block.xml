@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp"
+    android:background="#0F0F1A">
+
+    <ImageView
+        android:id="@+id/iv_app_icon"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/tv_app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#E2E8F0"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time limit reached"
+        android:textColor="#F87171"
+        android:textSize="14sp"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:id="@+id/tv_time_used"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#A78BFA"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/tv_limit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#888888"
+        android:textSize="13sp"
+        android:layout_marginBottom="20dp" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:progress="100"
+        android:progressTint="#F87171"
+        android:progressBackgroundTint="#222233"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/tv_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#888888"
+        android:textSize="13sp"
+        android:gravity="center"
+        android:layout_marginBottom="32dp" />
+
+    <Button
+        android:id="@+id/btn_go_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Go to Home"
+        android:backgroundTint="#A78BFA" />
+
+</LinearLayout>

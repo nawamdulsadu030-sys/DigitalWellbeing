@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Digital Wellbeing</string>
+    <string name="accessibility_service_label">Digital Wellbeing App Monitor</string>
+    <string name="accessibility_service_description">Monitors foreground apps to show usage timer and enforce time limits.</string>
+    <string name="channel_name">Digital Wellbeing</string>
+    <string name="channel_description">App usage tracking notification</string>
+</resources>

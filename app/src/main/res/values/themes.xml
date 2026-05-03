@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.DigitalWellbeing" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">#7C3AED</item>
+        <item name="colorPrimaryVariant">#5B21B6</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#A78BFA</item>
+        <item name="android:windowBackground">#0F0F1A</item>
+    </style>
+</resources>
