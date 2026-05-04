@@ -42,7 +42,6 @@
                 android:layout_weight="1"
                 android:hint="e.g. 240"
                 android:textColor="#E2E8F0"
-                android:hintTextColor="#555555"
                 android:inputType="number"
                 android:background="#1A1A2E"
                 android:padding="12dp" />
