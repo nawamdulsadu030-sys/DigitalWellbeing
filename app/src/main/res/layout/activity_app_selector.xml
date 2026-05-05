@@ -38,6 +38,6 @@
         android:layout_height="wrap_content"
         android:text="Save Selection"
         android:backgroundTint="#7C3AED"
-        android:layout_margin="12dp"
+        android:layout_margin="12dp" />
 
 </LinearLayout>
